@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage{fullpage}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{physics}
+
+\begin{document}
+
+\section{Equivalence principle and geodesics}
+
+The \textbf{Einstein equilvalence principle} (EEP) is inspired by the weak equivalence principle (WEP), which follows from the universal behaviour of gravity.
+Galileo and Newton observed that the inertial mass $m_i$ appearing in Newton's second law,
+$$ \boldsymbol{F} = m_i \boldsymbol{a}, $$
+is equal to the gravitational mass appearing in the gravitational force law,
+$$ \boldsymbol{F} = -m_g \nabla \Phi. $$
+Hence the WEP concludes that every object that is unaccelerated (i.e. freely falling, or subject only to gravity) moves along the same trajectory, regardless of its mass or composition. 
+As a consequence, the motion of freely falling particles is the same in a gravitational field and a uniformly accelerated frame, in small enough regions of spacetime.
+The EEP is an extension of the WEP, in which all physical measurements are included, not just the motion of particles.
+Namely, the EEP states that in small enough regions of sapcetime, the laws of physics reduce to those of special relativity; it is impossible to detect the existence of a gravitational field by means of local experiments.
+The EEP implies that there is no ``absolute acceleration''.
+Instead we define ``unaccelerated'' as ``freely falling in the local gravitational field''.
+Gravity is not a force because it doesn't cause acceleration (``acceleration due to gravity'' doesn't make sense).
+This suggests that gravity can be attributed to the curvature of spacetime.
+
+The EEP can be used to derive some basic quantitative results.
+First is the \textbf{gravitational redshift}.
+Consider two rockets, a distance $z$ apart, each moving with some constant acceleration $a$ in a certain direction, in a region away from any gravitational fields.
+The trailing rocket emits a photon with wavelength $\lambda_0$, which arrives at the leading rocket after a time $\Delta t = z/c$ in our frame.
+In this time the speed of the rockets has increased by $a \Delta t = az/c$.
+Therefore there is a normal Doppler shift due to the difference in speed between the emitter and the receiver of the photon:
+$$\frac{\Delta \lambda}{\lambda_0} = \frac{\Delta v}{c} =\frac{az}{c^2}.$$
+$\Delta \lambda$ is positive so the photon is redshifted.
+According to the EEP, this situation is indistinguishable from the sending of a photon upwards in a uniform downwards gravitational field with magnitude $a$, i.e.
+$$ g = -\nabla \Phi = -a .$$
+There is no way for the emitter and receiver to decide whether they are in accelerating rockets or in a gravitational field.
+Therefore they also observe redshift, which can be expressed in terms of the gravitational potential:
+$$ \frac{\Delta \lambda}{\lambda_0} = \frac{1}{c^2} \frac{\partial \Phi}{\partial z} z = \frac{\Delta \Phi}{c^2} $$
+where the final equality follows because $\Phi$ is linear for a constant gravitational field.
+Note that in the gravitational field of a planet, $\Phi = -G M/r$ increases as $r$ increases, so $\Delta \Phi$ and hence $\Delta \lambda$ are positive for photons travelling upwards.
+
+Another implication of the EEP is \textbf{time dilation in a gravitational field}.
+Consider the experimental setup above.
+The period of the light when emitted is $T_0 = \lambda_0/c$, and the period when received is $T_1 = (\lambda_0 + \Delta \lambda)/c$.
+Therefore, higher in the gravitational field, time runs faster.
+In terms of $\Phi$,
+$$ \frac{T_1}{T_0} = 1 + \frac{\Delta \Phi}{c^2}. $$
+Calibration for this effect is crucial for GPS satelites.
+
+These considerations imply the \textbf{need for a general metric}.
+
+\section{Principle of general covariance}
+
+\end{document}
