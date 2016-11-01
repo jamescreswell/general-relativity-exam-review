@@ -47,7 +47,33 @@ In terms of $\Phi$,
 $$ \frac{T_1}{T_0} = 1 + \frac{\Delta \Phi}{c^2}. $$
 Calibration for this effect is crucial for GPS satelites.
 
-These considerations imply the \textbf{need for a general metric}.
+These considerations imply the \textbf{need for a general metric} because, in Minkowski space, time runs the same everywhere in a certain frame.
+The metric $g_{\mu \nu}(x)$ is a tensor-valued function on spacetime which defines the line element of the spacetime:
+$$ ds^2 = g_{\mu \nu} dx^\mu dx^\nu. $$
+$g_{\mu \nu}$ can be taken to be symmetric ($g_{\mu \nu} = g_{\nu \mu}$) becasue any antisymmetric part would not contribute to $ds^2$.
+A crucial property of the metric is that the line element is geometric and should not depend on the choice of coordinates.
+This restriction implies the transformation rule for the metric under coordinate transformations.
+Consider an arbitrary coordinate transformation
+$$ x^\mu \rightarrow \tilde{x}^\mu(x). $$
+We require that
+$$ ds^2|{}_x = d\tilde{s}^2|{}_{\tilde{x}(x)} $$
+where
+$$ d\tilde{s}^2 = \tilde{g}_{\mu \nu} d\tilde{x}^\mu d\tilde{x}^\nu. $$
+The coordinate transformation gives 
+$$ dx^\mu = \frac{\partial x^\mu}{\partial \tilde{x}^\nu} d\tilde{x}^\nu, $$
+which together with the previous equations gives
+$$ g_{\mu \nu} \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial x^\nu}{\partial \tilde{x}^\beta} d\tilde{x}^\alpha d\tilde{x}^\beta = \tilde{g}_{\alpha \beta} d\tilde{x}^\alpha d\tilde{x}^\beta. $$
+The metric trasforms as
+$$ \tilde{g}_{\alpha \beta} = g_{\mu \nu} \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial x^\nu}{\partial \tilde{x}^\beta}. $$
+Provided that this condition is satisfied, the metric specifies a genuine spacetime geometry that is not dependent on a specific coordinate system.
+Although the Minkowski metric $\eta_{\mu \nu}$ is its own inverse, this is not the case in general.
+The inverse metric is defined by
+$$ g^{\mu \nu} g_{\nu \rho} = \delta^\mu_\rho. $$
+Its transformation rule is
+$$ \tilde{g}^{\alpha \beta} = g^{\mu \nu} \frac{\partial \tilde{x}^\alpha}{\partial x^\mu} \frac{\partial \tilde{x}^\beta}{\partial x^\nu}, $$
+which can be checked by comptuing $\tilde{g}^{\alpha \beta} \tilde{g}_{\beta \gamma}$.
+
+The \textbf{geodesic equation} describes the motion of unaccelerated particles in a general spacetime.
 
 \section{Principle of general covariance}
 
