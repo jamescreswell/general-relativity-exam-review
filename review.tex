@@ -63,7 +63,7 @@ The coordinate transformation gives
 $$ dx^\mu = \frac{\partial x^\mu}{\partial \tilde{x}^\nu} d\tilde{x}^\nu, $$
 which together with the previous equations gives
 $$ g_{\mu \nu} \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial x^\nu}{\partial \tilde{x}^\beta} d\tilde{x}^\alpha d\tilde{x}^\beta = \tilde{g}_{\alpha \beta} d\tilde{x}^\alpha d\tilde{x}^\beta. $$
-The metric trasforms as
+Therefore the metric trasforms as
 $$ \tilde{g}_{\alpha \beta} = g_{\mu \nu} \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial x^\nu}{\partial \tilde{x}^\beta}. $$
 Provided that this condition is satisfied, the metric specifies a genuine spacetime geometry that is not dependent on a specific coordinate system.
 Although the Minkowski metric $\eta_{\mu \nu}$ is its own inverse, this is not the case in general.
@@ -74,7 +74,113 @@ $$ \tilde{g}^{\alpha \beta} = g^{\mu \nu} \frac{\partial \tilde{x}^\alpha}{\part
 which can be checked by comptuing $\tilde{g}^{\alpha \beta} \tilde{g}_{\beta \gamma}$.
 
 The \textbf{geodesic equation} describes the motion of unaccelerated particles in a general spacetime.
+In flat space, the path $x^\mu(\tau)$ of a freely falling particle is given by
+$$ \frac{d^2 x^\mu}{d\tau^2} = 0. $$
+This straight line path maximizes the proper time.
+We promote this to a general principle that holds even in curved spacetime: a freely falling particle follows the path between two events that maximizes its proper time.
+For a timelike path $x^\mu(\lambda)$, the infinitesimal proper time is
+$$ d\tau^2 = -ds^2 = -g_{\mu \nu} dx^\mu dx^\nu = -g_{\mu \nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda} d\lambda^2 $$
+and the total proper time between two events A and B is
+$$ \tau = \int_{\lambda_A}^{\lambda_B} \sqrt{-g_{\mu \nu} \frac{dx^\mu}{d\lambda} \frac{dx^\nu}{d\lambda}} d\lambda. $$
+The actual trajectory maximizes this integral.
+The details of this straightforward variational calculation are omitted.
+The result is:
+$$ \frac{d^2 x^\mu}{d \tau^2} + \Gamma^\mu_{\nu \rho} \frac{dx^\nu}{d\tau} \frac{dx^\rho}{d\tau} = 0 $$
+where
+$$ \Gamma^\mu_{\nu \rho} = \frac{1}{2} g^{\mu \sigma} \left( \frac{\partial g_{\nu \sigma}}{\partial x^\rho} + \frac{\partial g_{\sigma \rho}}{\partial x^\nu} - \frac{\partial g_{\nu \rho}}{\partial x^\sigma} \right). $$
+
+In the \textbf{Newton limit}, the metric has the form
+$$ g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu} $$
+where $|h_{\mu \nu}| \ll 1$.
+$h_{\mu \nu}$ can depend on the space coordinates $x^i$ but not time $x^0$.
+We also assume that velocities are small:
+$$ \left| \frac{dx^i}{d\tau} \right| \ll 1. $$
+With these assumptions the geodesic equation becomes
+$$ \frac{d^2 x^\mu}{d \tau^2} + \Gamma^\mu_{00} \left( \frac{dt}{d\tau} \right)^2 = 0 $$
+with
+$$ \Gamma^\mu_{00} = -\frac{1}{2} \eta^{\mu \sigma} \frac{\partial h_{00}}{\partial x^\sigma}. $$ 
+When $\mu = 0$ this equation gives 
+$$ \frac{d^2 t}{d\tau^2} = 0 $$
+and when $\mu = i$
+$$ \frac{d^2 x^i}{dt^2} = \left( \frac{d\tau}{dt} \right)^2 \frac{d^2 x^i}{d\tau^2} =  -\Gamma^i_{00} = \frac{1}{2} \frac{\partial h_{00}}{\partial x^i}. $$
+In vector form this is 
+$$ \ddot{\boldsymbol{x}} = \frac{1}{2} \nabla h_{00}, $$
+which motivates the identification $h_{00} = -2\Phi$ or $g_{00} = -1 - 2\Phi$.
+Here is a suggestion that the metric in general relativity replaces the gravitational potential in Newtonian gavity, just as the geodesic equation replaces Newton's second law.
+What remains is to find the replacement for Poisson's equation, $\nabla^2 \Phi = 4 \pi G \rho$, which gives $\Phi$ in terms of the local mass density.
 
 \section{Principle of general covariance}
+
+According to the EEP, a \textbf{local inertial system} can always be found at a certain point in spacetime.
+Let $p$ be an event.
+Then a local inertial system is a coordinate system in which
+$$ g_{\mu \nu} |{}_p = \eta_{\mu \nu} $$
+and
+$$ \partial_\rho g_{\mu \nu}|{}_p = 0. $$
+Therefore, near $p$, the Christoffel symbols, which are expressed in terms of the derivatives of $g_{\mu \nu}$, vanish, and the geodesic equation becomes
+$$ \frac{d^2 x^\mu}{d\tau^2} = 0 $$
+in accordance with the equivalence principle.
+
+The \textbf{principle of general covariance} is the statement that the form of physical laws cannot depend on the coordinates we use to express them. 
+That is, the general laws of nature are to be expressed by equations that are covariant under any coordinate transformation
+Furthermore, we require that the laws of physics reduce to those of special relativity in a local inertial system.
+
+\textbf{Tensors}
+
+The \textbf{covariant derivative} is a derivative operator for tensors that returns a tensor.
+We need that the derivative of a tensor is also a tensor for general covariance.
+For scalar fields $\Phi(x)$, the normal partial derivative $\partial_\mu$ is fine. $\partial_\mu \Phi$ is a tensor because, after a coordinate transformation $x^\mu \rightarrow \tilde{x}^\mu(x)$,
+$$ \tilde{\partial}_\mu \tilde{\Phi} = \frac{\partial}{\partial \tilde{x}^\mu} \tilde{\Phi} = \frac{\partial x^\nu}{\partial \tilde{x}^\mu} \frac{\partial}{\partial x^\nu} \Phi = \frac{\partial x^\nu}{\partial \tilde{x}^\mu} \partial_\mu \Phi, $$
+which is the correct transformation rule for a one-form.
+However, consider a vector field $V^\mu(x)$.
+In this case $\partial_\mu V^\nu$ is not a tensor.
+Under a coordinate transformation $x^\mu \rightarrow \tilde{x}^\mu(x)$,
+$$ \tilde{\partial}_\alpha \tilde{V}^\beta = \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial}{\partial x^\mu} \left( \frac{\partial \tilde{x}^\beta}{\partial x^\nu} V^\nu \right) = \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial \tilde{x}^\beta}{\partial x^\nu} \partial_\mu V^\nu + \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial^2 \tilde{x}^\beta}{\partial x^\mu \partial x^\nu} V^\nu. $$
+This is not the correct tensor transformation rule due to the extra term.
+We seek a covariant derivative $D_\mu V^\nu$ which does transform correctly:
+$$ \tilde{D}_\alpha \tilde{V}^\beta =  \frac{\partial x^\mu}{\partial \tilde{x}^\alpha} \frac{\partial \tilde{x}^\beta}{\partial x^\nu} D_\mu V^\nu. $$
+An unpleasant calculation (so? see Hartle) gives the correct result:
+$$ D_\mu V^\nu = \partial_\mu V^\nu + \Gamma^\nu_{\mu \rho} V^\rho. $$
+For one-forms, the covariant derivative is
+$$ D_\mu A_\nu = \partial_\mu A_\nu - \Gamma^\rho_{\mu \nu} A_\rho. $$
+The general formula is
+\begin{multline*}
+D_\rho T^{\mu_1 \cdots \mu_n}{}_{\nu_1 \cdots \nu_m} = \partial_\rho T^{\mu_1 \cdots \mu_n}{}_{\nu_1 \cdots \nu_m} + \Gamma^{\mu_1}_{\rho \sigma} T^{\sigma \mu_2 \cdots \mu_n}{}_{\nu_1 \cdots \nu_m} + \cdots + \Gamma^{\mu_n}_{\rho \sigma} T^{\mu_1 \cdots \mu_{n-1} \sigma}{}_{\nu_1 \cdots \nu_m} \\  - \Gamma^{\sigma}_{\rho \nu_1} T^{\mu_1 \cdots \mu_n}{}_{\sigma \nu_2 \cdots \nu_m} - \cdots - \Gamma^{\sigma}_{\rho \nu_m} T^{\mu_1 \cdots \mu_n}{}_{\nu_1 \cdots \nu_{m-1} \sigma}.
+\end{multline*}
+The covariant derivative has the normal properties of derivatives, including linearity and the product rule.
+Furthermore, the covariant derivative of the metric is zero:
+$$ D_\rho g_{\mu \nu} = D_\rho g^{\mu \nu} = 0. $$
+This result is trivial in a local inertial system, and therefore it holds everywhere because it is a tensor equation.
+The fact that the metric is covariant constant enables indices to be freely raised and lowered within a covariant derivative.
+For example,
+$$ D_\mu A_\nu = D_\mu (g_{\nu \alpha} A^\alpha) = g_{\nu \sigma} D_\mu A^\alpha, $$
+and
+$$ D_\mu V^\mu = D_\mu (g^{\mu \nu} V_\nu) = g^{\mu \nu} D_\mu V_\nu = D^\nu V_\nu. $$
+
+The \textbf{covariant derivative along a curve} is defined by
+$$ \frac{D}{d\lambda} = \frac{dx^\mu}{d\lambda} D_\mu $$
+where $x^\mu (\lambda)$ is a curve.
+In particular, if a particle moves along a timelike curve $x^\mu(\tau)$ with velocity $v^\mu = dx^\mu/d\tau$, then
+$$ \frac{D}{d\tau} v^\mu = v^\nu D_\nu v^\mu = \frac{dx^\nu}{d\tau} \left( \frac{\partial v^\mu}{\partial x^\nu} + \Gamma^\mu_{\nu \rho} v^\rho \right) = \frac{d v^\mu}{d \tau} + \Gamma^\mu_{\nu \rho} v^\nu v^\rho, $$
+which is one side of the geodesic equation.
+Therefore, in covariant form, the geodesic equation is simply
+$$ \frac{D}{d\tau} v^\mu = 0. $$
+
+From this equation it is clear that \textbf{the geodesic equation satisfies the principle of general covariance}.
+The equation is entirely tensorial, so it is guaranteed to take the same form in all coordinate systems.
+Furthermore, in a local inertial system where $D_\mu = \partial_\mu$, it reduces to $dv^\mu/d\tau = 0$, which is the correct equation from special relativity.
+
+We can also use the covariant derivative along a curve to define the \textbf{covariant acceleration}:
+$$ a^\mu = \frac{D}{d\tau} v^\mu = \frac{d^2 x^\mu}{d \tau^2} + \Gamma^\mu_{\nu \rho} \frac{dx^\nu}{d\tau} \frac{dx^\rho}{d\tau}. $$
+With this definition, it is explicit that freely falling particles, which follow geodesics, are unaccelerated.
+
+The \textbf{covariant form of Maxwell's equations} is found by simply substituting partial derivatives for covariant derivatives.
+This familar procedure is justified because first we require general covariance, and second we require that the equations reduce to those of special relativity in a local inertial system, in which $D_\mu = \partial_\mu$.
+Therefore the original Maxwell's equations
+$$ \partial_\mu F^{\mu \nu} = -J^\nu, \quad \partial_{[\mu}F_{\nu \rho]} = 0 $$
+become
+$$ D_\mu F^{\mu \nu} = -J^\nu, \quad D_{[\mu}F_{\nu \rho]} = 0. $$
+
+
 
 \end{document}
