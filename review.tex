@@ -153,7 +153,7 @@ $$ D_\rho g_{\mu \nu} = D_\rho g^{\mu \nu} = 0. $$
 This result is trivial in a local inertial system, and therefore it holds everywhere because it is a tensor equation.
 The fact that the metric is covariant constant enables indices to be freely raised and lowered within a covariant derivative.
 For example,
-$$ D_\mu A_\nu = D_\mu (g_{\nu \alpha} A^\alpha) = g_{\nu \sigma} D_\mu A^\alpha, $$
+$$ D_\mu A_\nu = D_\mu (g_{\nu \alpha} A^\alpha) = g_{\nu \alpha} D_\mu A^\alpha, $$
 and
 $$ D_\mu V^\mu = D_\mu (g^{\mu \nu} V_\nu) = g^{\mu \nu} D_\mu V_\nu = D^\nu V_\nu. $$
 
@@ -181,6 +181,66 @@ $$ \partial_\mu F^{\mu \nu} = -J^\nu, \quad \partial_{[\mu}F_{\nu \rho]} = 0 $$
 become
 $$ D_\mu F^{\mu \nu} = -J^\nu, \quad D_{[\mu}F_{\nu \rho]} = 0. $$
 
+\section{Curvature and Einstein's equations}
 
+On a differentiable manifold, vectors are intrinsically fixed at a particular point, and the procedure of \textbf{parallel transport} is required to compare vectors at different points.
+Vectors are elements of a tangent space at an event.
+Therefore it is not trivial to compare the coordinates of vectors at different points.
+In particular, if $V^\mu \in T_p$ and $W^\mu \in T_q$ have the same components in one basis, then they might have different components in another basis.
+Let $x^\mu(\lambda)$ be a curve with $x^\mu(0) = p^\mu$ and $x^\mu(\Lambda) = q^\mu$.
+Extend the vector $V^\mu \in T_p$ to a vector field $V^\mu(x)$ defined at all the points on the curve subject to the requirement that
+$$ \frac{D}{d\lambda} V^\mu = \frac{dV^\mu}{d\lambda} + \Gamma^\mu_{\nu \rho} \frac{dx^\nu}{d\lambda} V^\rho = 0. $$
+Now $V^\mu(x(\Lambda)) \in T_q$ and can be compared to $W^\mu$.
+For example, their inner product is
+$$ (g_{\mu \nu}|{}_q) (V^\mu|{}_\Lambda) (W^\mu). $$
+Note that inner products are conserved as vectors are parallel transported:
+$$ \frac{D}{d\lambda} (g_{\mu \nu} V^\mu W^\nu) = \frac{D}{d\lambda} (g_{\mu \nu} V^\mu V^\nu) = 0. $$
+This follows from the product rule for the covariant derivative. (?)
+Therefore orthogonality is preserved.
+In curved spacetime, parallel transport is dependent upon the chosen curve $x^\mu(\lambda)$.
+
+The path depedence of parallel transport in a parallelogram can be used to derive the \textbf{Riemann curvature tensor}.
+Consider a vector $V^\mu$ at a point $x^\mu_0$.
+Use parallel transport on $V^\mu$ along two paths: first, $x_0^\mu \rightarrow x_0^\mu + a^\mu \rightarrow x_0^\mu + a^\mu + b^\mu$, second $x_0^\mu \rightarrow x_0^\mu + b^\mu \rightarrow x_0^\mu + b^\mu + a^\mu$, where both $a^\mu$ and $b^\mu$ are infinitesimal.
+In general, the deviation of $V^\mu$ in an infinitesimal parallel transport $x^\mu \rightarrow x^\mu + dx^\mu$ is
+$$ dV^\mu = - \Gamma^\mu_{\nu \rho} V^\nu dx^\rho, $$
+which can be derived from the equation defining the vector field $V^\mu$ above.
+Therefore the result after the first path is
+$$ V^\mu_1 = V^\mu(x_0 + a) - \Gamma^\mu_{\nu \rho}(x_0 + a) V^\nu(x_0 + a) b^\rho $$
+where
+$$ V^\mu(x_0 + a) = V^\mu - \Gamma^\mu_{\nu \rho} V^\nu a^\rho $$
+and
+$$ \Gamma^\mu_{\nu \rho}(x_0 + a) = \Gamma^\mu_{\nu \rho} + \partial_\sigma \Gamma^\mu_{\nu \rho} a^\sigma. $$
+Here and henceforth all quantities are evaluated at $x_0$ unless indicated.
+Therefore
+$$ V_1^\mu = V^\mu - \Gamma^\mu_{\nu \rho} V^\nu (a^\rho + b^\rho) - \partial_\sigma \Gamma^\mu_{\nu \rho} a^\sigma V^\nu b^\rho + \Gamma^\mu_{\nu \rho} \Gamma^\nu_{\alpha \beta} V^\alpha a^\beta b^\rho. $$
+Renaming the repeated indices in the final two terms induces the simplification
+$$ V_1^\mu =  V^\mu - \Gamma^\mu_{\nu \rho} V^\nu (a^\rho + b^\rho) + V^\nu a^\rho b^\sigma \left( -\partial_\rho \Gamma^\mu_{\nu \sigma} + \Gamma^\mu_{\alpha \sigma} \Gamma^\alpha_{\nu \rho} \right). $$
+$V_2^\mu$ can be found by exchanging $a$ and $b$. Then their difference is
+$$V_2^\mu - V_1^\mu = V^\nu a^\rho b^\sigma \left( \partial_\rho \Gamma^\mu_{\nu \sigma} - \partial_\sigma \Gamma^\mu_{\nu \rho} + \Gamma^\mu_{\alpha \rho} \Gamma^\alpha_{\nu \sigma} - \Gamma^\mu_{\alpha \sigma} \Gamma^\alpha_{\nu \rho} \right) = R^\mu{}_{\nu \rho \sigma} V^\nu a^\rho b^\sigma. $$
+$R^\mu{}_{\nu \rho \sigma}$ is the Riemann curvature tensor.
+Although $R^\mu{}_{\nu \rho \sigma} = 0$ in Minkowski space, it is in general nonzero.
+It contains second derivatives of the metric, which do not vanish in a local inertial system.
+An alternative definition of the Riemann curvature tensor is by the commutator of covariant derivatives:
+$$ [D_\mu, D_\nu] V^\rho = (D_\mu D_\nu - D_\nu D_\mu ) V^\rho = R^\rho{}_{\sigma \mu \nu} V^\sigma. $$
+Again we see that $R^\mu{}_{\nu \rho \sigma}$ reduces to $0$ in a local inertial system because partial derivatives commute.
+In fully covariant form the Riemann curvature tensor is
+$$ R_{\mu \nu \rho \sigma} = g_{\mu \alpha} R^\alpha{}_{\nu \rho \sigma}. $$
+This can be written as
+$$ R_{\mu \nu \rho \sigma} = \frac{1}{2} \left(\frac{\partial^2 g_{\mu \sigma}}{\partial x^\nu \partial x^\rho} - \frac{\partial^2 g_{\mu \rho}}{\partial x^\nu \partial x^\sigma} + \frac{\partial^2 g_{\nu \rho}}{\partial x^\mu \partial x^\sigma} - \frac{\partial^2 g_{\nu \sigma}}{\partial x^\mu \partial x^\rho} \right) + g_{\alpha \beta} \left( \Gamma^{\alpha}_{\mu \sigma} \Gamma^\beta_{\nu \rho} - \Gamma^\alpha_{\mu \rho} \Gamma^\rho_{\nu \sigma} \right). $$
+Some symmetry properties are clear from this expression:
+\begin{itemize}
+\item $ R_{\mu \nu \rho \sigma} = -R_{\mu \nu \sigma \rho} = -R_{\nu \mu \rho \sigma} $
+\item $ R_{\mu \nu \rho \sigma} = R_{\rho \sigma \mu \nu} $
+\item $ R_{\mu \nu \rho \sigma} + R_{\mu \sigma \nu \rho} + R_{\mu \rho \sigma \nu} = 0 $
+\item $ D_\alpha R_{\mu \nu \rho \sigma} + D_\nu R_{\alpha \mu \rho \sigma} + D_\mu R_{\nu \alpha \rho \sigma} = 0 $
+\end{itemize}
+The final equality is called the Bianchi identity and can be derived by considering the tensor in a local inertial system where the covariant derivatives are partial derivatives.
+Contracting the Riemann curvature tensor gives the Ricci tensor, defined by
+$$ R_{\mu \nu} = R^\rho{}_{\mu \rho \nu} = g^{\rho \sigma} R_{\sigma \mu \rho \nu}. $$
+The Ricci tensor is symmetric.
+The Ricci scalar is $R = R^\mu{}_\mu = g^{\mu \nu} R_{\mu \nu}$.
+The Bianchi identity implies (how?) that
+$$ D^\mu \left( R_{\mu \nu} - \frac{1}{2} g_{\mu \nu} R \right) = 0. $$
 
 \end{document}
