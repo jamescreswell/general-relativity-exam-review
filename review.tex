@@ -240,7 +240,61 @@ Contracting the Riemann curvature tensor gives the Ricci tensor, defined by
 $$ R_{\mu \nu} = R^\rho{}_{\mu \rho \nu} = g^{\rho \sigma} R_{\sigma \mu \rho \nu}. $$
 The Ricci tensor is symmetric.
 The Ricci scalar is $R = R^\mu{}_\mu = g^{\mu \nu} R_{\mu \nu}$.
-The Bianchi identity implies (how?) that
+Using the Bianchi identity,
+$$ g^{\alpha \beta} g^{\nu \rho} \left( D_\mu R_{\alpha \nu \beta \rho} + D_\nu R_{\mu \alpha \beta \rho} + D_\alpha R_{\nu \mu \beta \rho} \right) = 0. $$
+Using the symmetry properties above to exchange indices gives
+$$ g^{\alpha \beta} g^{\nu \rho} \left( D_\mu R_{\alpha \nu \beta \rho} - D_\nu R_{\alpha \mu \beta \rho} - D_\alpha R_{\mu \nu \beta \rho} \right) = 0, $$
+which reduces to
+$$ D_\mu R - 2 D^\nu - D^\nu R_{\mu \nu} = 0 $$
+or
 $$ D^\mu \left( R_{\mu \nu} - \frac{1}{2} g_{\mu \nu} R \right) = 0. $$
+This equation will be used later in the final derivation of Einstein's equations.
+
+In the same way that the metric $g_{\mu \nu}$ replaces the Newtonian gravitational potential $\Phi$, we seek the \textbf{energy-momentum tensor} that replaces the matter density $\rho$.
+The geodesic equation is the analogue of
+$$ \boldsymbol{a} = - \nabla \Phi. $$
+The energy-momentum tensor will appear in the analogue of
+$$ \nabla^2 \Phi = 4 \pi G \rho. $$
+We expect an equation of the form
+$$ \partial^2 g_{\mu \nu} \sim 4 \pi G T_{\mu \nu} $$
+where $T_{\mu \nu}$ is the energy-momentum tensor.
+We define $T^{\mu \nu}$ as follows:
+\begin{itemize}
+\item $T^{00}$: energy density
+\item $T^{i0}$: momentum density 
+\item Hence $T^{\mu 0}$: four-momentum density
+\item $T^{0i}$: energy flux; $n_i T^{0i} dA$ = energy per unit time  through area $dA$ with unit normal $n^i$
+\item $T^{ij}$: internal forces
+\end{itemize}
+Note that $T^{0i} = T^{i0}$ because energy flux is equal to momentum density in special relativity.
+Therefore $T^{\mu \nu}$ is symmetric and $T^{\mu \nu} = T^{\nu \mu}$.
+
+Having defined the energy-momentum tensor we are ready to complete the \textbf{derivation of Einstein's equations}.
+What replaces the $\nabla^2 \Phi$ term on the left side of Poisson's equation?
+We need a 2-index tensor containing second derivatives of the metric that is symmetric (because $T_{\mu \nu}$ is symmetric) and is conserved ($D^\mu T_{\mu \nu} = 0$).
+Such a tensor has been identified above.
+Therefore we propose
+$$ R_{\mu \nu} -\frac{1}{2} g_{\mu \nu} R = \kappa T_{\mu \nu}. $$
+The value of $\kappa$ in terms of familiar constants can be found by taking the Newton limit.
+We have
+$$ g_{\mu \nu} = \eta_{\mu \nu} + h_{\mu \nu}, \quad \left| h_{\mu \nu} \right| \ll 1 $$
+and that velocties are small: $|v^i| \ll 1$.
+Furthermore the energy-momentum tensor is that of static dust:
+$$ T^{\mu \nu} = \rho \delta^{\mu 0} \delta^{\nu 0}. $$
+Now take the trace, giving
+$$ -R = \kappa T = -\kappa \rho. $$
+Therefore
+$$ R_{00} = \kappa T_{00} + \frac{1}{2} \eta_{00} R = \frac{1}{2} \kappa \rho. $$
+Note that
+$$ R_{00} = R^\mu{}_{0 \mu 0} = R^i{}_{0 i 0} = \partial_i  \Gamma^i_{00}. $$
+From earlier investigations of the geodesic equation in the Newton limit, it has been found that
+$$ \Gamma^i_{00} = -\frac{1}{2} \partial_i h_{00} $$
+and that $h_{00} = -2\Phi$. Therefore
+$$ R_{00} = \nabla^2 \Phi. $$
+Put this into the equation above to get
+$$ \nabla^2 \Phi = \frac{1}{2} \kappa \rho $$
+hence $\kappa = 8\pi G$.
+The complete Einstein's equations are
+$$ R_{\mu \nu} - \frac{1}{2} g_{\mu \nu} R = 8\pi G T_{\mu \nu}. $$
 
 \end{document}
