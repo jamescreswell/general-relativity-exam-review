@@ -9,7 +9,7 @@
 
 \section{Equivalence principle and geodesics}
 
-The \textbf{Einstein equilvalence principle} (EEP) is inspired by the weak equivalence principle (WEP), which follows from the universal behaviour of gravity.
+The \textbf{Einstein equivalence principle} (EEP) is inspired by the weak equivalence principle (WEP), which follows from the universal behaviour of gravity.
 Galileo and Newton observed that the inertial mass $m_i$ appearing in Newton's second law,
 $$ \boldsymbol{F} = m_i \boldsymbol{a}, $$
 is equal to the gravitational mass appearing in the gravitational force law,
@@ -296,5 +296,93 @@ $$ \nabla^2 \Phi = \frac{1}{2} \kappa \rho $$
 hence $\kappa = 8\pi G$.
 The complete Einstein's equations are
 $$ R_{\mu \nu} - \frac{1}{2} g_{\mu \nu} R = 8\pi G T_{\mu \nu}. $$
+
+\section{Geodesics of the Schwarzschild metric}
+
+The \textbf{Schwarzschild metric} is
+$$ ds^2 = - \left( 1 - \frac{2GM}{r} \right) dt^2 + \left( 1 - \frac{2GM}{r} \right)^{-1} dr^2 + r^2 d\Omega^2. $$
+This was derived as the unique static, spherically symmetric solution to the vacuum Einstein's equations.
+Any other static, spherically symmetric vacuum solution can be converted to this form by coordinate transformations.
+Actually, the static assumption is unnecessary.
+
+The \textbf{Schwarzschild radius} is $r_0 = 2GM$.
+The Schwarzschild metric describes the geometry outside a spherically symmetric star with total mass $M$, as can be shown in the Newton limit (proof?).
+The metric is only valid outside the radius $R$ of the star.
+For planets and stars, $R \gg r_0 = 2GM$.
+
+First we consider the \textbf{timelike geodesics} of massive particles.
+Because the metric is independent of $t$ and $\phi$, there are conserved quantities 
+$$ E = - (1, 0, 0, 0) \cdot u^\mu = \left( 1 - \frac{r_0}{r} \right) \dot{t} $$
+and
+$$ L = (0, 0, 0, 1) \cdot u^\mu = r^2 \sin^2 ( \theta ) \dot{\phi}. $$
+These conserved quantities can also be found from the geodesic equation by computing Christoffel symbols.
+The conservation of $L$ implies that the orbits lie in a plane (start with $\dot{\phi} = 0$, stay there).
+Reorient coordinates so that orbits are in the plane $\theta = \pi/2$.
+Then the normalization of the four-velocity gives a final equation:
+$$ g_{\mu \nu} u^\mu u^\nu = - \left( 1 - \frac{r_0}{r} \right) \dot{t}^2 + \left( 1 - \frac{r_0}{r} \right)^{-1} \dot{r}^2 + r^2 \dot{\phi}^2 = -1.  $$
+Substituting values and simplifying gives
+$$ \frac{1}{2} \dot{r}^2 + V_{\textrm{eff}}(r) = \frac{1}{2} E^2 $$
+where
+$$ V_{\textrm{eff}}(r) = \frac{1}{2} - \frac{G M}{r} + \frac{L^2}{2r^2} - \frac{GML^2}{r^3}. $$
+The first three terms are the Newtonian potential in the two-body problem; the final term is a general relativistic correction.
+
+This differential equation admits \textbf{circular orbits}.
+Solving the equation $dV_{\textrm{eff}}/dr = 0$ gives
+$$ r_\pm = \frac{r_N}{2} \pm \frac{r_N}{2} \sqrt{1 - \frac{12 G^2 M^2}{L^2}} $$
+where $r_N = L^2/GM$ is the Newtonian solution.
+Therefore if $L/GM < \sqrt{12}$, then there are no circular orbits.
+Now consider the $L/GM \gg \sqrt{12}$ regime.
+Then
+$$ r_\pm =  \frac{r_N}{2} \pm \frac{r_N}{2} \left( 1 - \frac{6 G^2 M^2}{L^2} \right). $$ 
+$r_+ = r_N$ is the normal stable Newtonian orbit.
+$r_- = 3GM$ is an unstable orbit at the top of the centrifugal barrier.
+
+Also allowed are \textbf{elliptic orbits}.
+Let
+$$ x = \frac{r_N}{r}. $$
+Then
+$$ \frac{dx}{d\phi} = \frac{d\tau}{d\phi} \frac{dx}{d\tau} = \frac{1}{\dot{\phi}} \left( - \frac{r_N}{r^2} \dot{r} \right) = - \frac{r_N}{L} \dot{r} = - \frac{L}{GM} \dot{r}. $$
+Then the differential equation for $\dot{r}$ becomes, after multiplying both sides by $2 L^2/G^2 M^2$,
+$$ \left( \frac{dx}{d\phi} \right)^2 + \frac{L^2}{G^2 M^2} -2x + x^2 = E^2 \frac{L^2}{G^2 M^2} + 2 \frac{G^2 M^2}{L^2} x^3. $$
+In the regime $L \gg GM, r \gg GM$ we can write
+$$ x(\phi) = x_0(\phi) + \frac{G^2 M^2}{L^2} x_1(\phi) $$
+where $x_0(\phi) = 1 + e \cos(\phi)$ is the Newtonian solution and $x_1(\phi)$ is the \textbf{post-Newtonian correction}.
+Differentiating this equation with respect to $\phi$ gives
+$$ \frac{d^2 x}{d\phi^2} - 1 + x = 3 \frac{G^2 M^2}{L^2} x^2. $$
+$x_0(\phi)$ solves $d^2 x_0/d\phi^2 -1 + x_0 = 0$ so 
+$$ \frac{d^2 x_1}{d\phi^2} + x_1 = 3x_0^2. $$
+The solution to this equation is
+$$ x_1(\phi) = 3 + \frac{3 e^2}{2} -\frac{1}{2} e^2 \cos(2\phi) + 3e\phi \sin(\phi). $$
+The final term is not periodic and leads to perihelion precession.
+
+\section{Cosmology}
+
+The \textbf{Copernican principle} states that at a given moment in time the universe looks the same everywhere.
+This notion is applicable to the universe at very large scales, where localized sources of matter and energy like stars and dust are averaged.
+
+The Copernican principle implies that the geometry of spactime is described by the \textbf{Robertson-Walker metric}.
+Consider coordinates $t, x^i$ where $t$ is a cosmic standard time, which parameterizes the evolution of the universe. 
+For a given $t$, the universe is homogeneous and isotropic in the spatial coordinates $x^i$.
+Any path $x^i = \textrm{constant}$ is a timelike geodesic because the density of matter is at rest in this coordinate system.
+Therefore the proper time for such a path is given by
+$$ d\tau^2 = g(x^i) dt^2. $$
+$g(x^i)$ must be constant because of homogeneity.
+The constant can be taken to be $1$ by adjusting $t$.
+Also, $g_{ti} = 0$ otherwise a preferred direction would be identified, defying isotropy.
+Therefore 
+$$ ds^2 = -dt^2 + g_{ij} dx^i dx^j. $$
+Homogeneity and isotropy imply the form of $g_{ij}$ via a lengthy calculation.
+The result is
+$$ ds^2 = -dt^2 + a(t)^2 \left( \frac{dr^2}{1 - k r^2} + r^2 d\Omega^2 \right) $$
+where $k \in {-1, 0, 1}$ and $a(t)$ is called the scale factor.
+Note that averaged matter is at rest in the coordinates of the RW metric, and the coordinates are called comoving because they move along with matter.
+Let 
+$$ d\chi = \frac{dr}{\sqrt{1-kr^2}}. $$
+The three possible choices of $k$ correspond to three types of universe:
+\begin{itemize}
+\item $k = 1$: $r(\chi) = \sin(\chi)$, $d\sigma^2 =a^2 \left( d\chi^2 + \sin^2(\chi) d\Omega^2 \right).$ This is the metric of a $3$-sphere. The space is periodic and finite. It describes a closed universe.
+\item $k = 0$: $r(\chi) = \chi$, $d\sigma^2 = a^2 \left( d\chi^2 + \chi^2 d\Omega^2 \right).$ This is the metric of 3d flat space. It describes a flat universe.
+\item $k = -1$: $r(\chi) = \sinh(\chi)$, $d\sigma^2 =a^2 \left( d\chi^2 + \sinh^2(\chi) d\Omega^2 \right).$ This is the metric of a 3d hyperboloid. It describes an open universe.
+\end{itemize}
 
 \end{document}
